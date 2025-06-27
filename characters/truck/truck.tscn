@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://drfdd6v1ylluj"]
+[gd_scene load_steps=2 format=3 uid="uid://drfdd6v1ylluj"]
+
+[ext_resource type="PackedScene" uid="uid://dp3hnb6m8fcfh" path="res://assets/Truck.glb" id="1_13si6"]
 
 [node name="Truck" type="Node3D"]
+
+[node name="Truck" parent="." instance=ExtResource("1_13si6")]
+
+[editable path="Truck"]
