@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CrazyTruck"
+run/main_scene="uid://b8j2p4q6y3nxk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
