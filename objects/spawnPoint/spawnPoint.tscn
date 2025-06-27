@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://ctdbc8tik1c7w"]
+[gd_scene load_steps=3 format=3 uid="uid://ctdbc8tik1c7w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aiykw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bts5f"]
+albedo_color = Color(0, 0.730452, 0.301722, 1)
+metallic = 0.83
+metallic_specular = 0.51
+emission_enabled = true
+emission = Color(0.763769, 0.78948, 0.76644, 1)
+emission_energy_multiplier = 0.38
 
 [node name="SpawnPoint" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, 0, 10, 0)
+mesh = SubResource("CapsuleMesh_aiykw")
+surface_material_override/0 = SubResource("StandardMaterial3D_bts5f")

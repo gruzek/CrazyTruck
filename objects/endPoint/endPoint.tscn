@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://e2mbyidy1784"]
+[gd_scene load_steps=3 format=3 uid="uid://e2mbyidy1784"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mjaqy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgo0g"]
+albedo_color = Color(1, 0.334912, 0.466632, 1)
+metallic = 0.83
+metallic_specular = 0.51
+emission_enabled = true
+emission = Color(0.763769, 0.78948, 0.76644, 1)
+emission_energy_multiplier = 0.38
 
 [node name="EndPoint" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 10, 0)
+mesh = SubResource("CapsuleMesh_mjaqy")
+surface_material_override/0 = SubResource("StandardMaterial3D_dgo0g")

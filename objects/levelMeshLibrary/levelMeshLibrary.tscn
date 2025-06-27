@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca64wi8msochd"]
+[gd_scene load_steps=12 format=3 uid="uid://ca64wi8msochd"]
 
 [ext_resource type="PackedScene" uid="uid://c2jai5bf8tmiq" path="res://assets/building-01.glb" id="1_djs33"]
 [ext_resource type="PackedScene" uid="uid://dnd8p8bjmd3ix" path="res://assets/sidewalk-01.glb" id="1_yp4fd"]
 [ext_resource type="PackedScene" uid="uid://dxta3mtwba6lu" path="res://assets/road-01.glb" id="3_xoeck"]
 [ext_resource type="PackedScene" uid="uid://c6mh5t43tflyl" path="res://assets/sidewalk-corner-01.glb" id="4_2c100"]
+[ext_resource type="PackedScene" uid="uid://d0y8updlv32pw" path="res://assets/building-02.glb" id="5_7w4bo"]
+[ext_resource type="PackedScene" uid="uid://xqwrtsqfoo5m" path="res://assets/road-corner-01.glb" id="5_54d6h"]
+[ext_resource type="PackedScene" uid="uid://cibpum72t7i4m" path="res://assets/road-crossing-01.glb" id="7_pti3a"]
+[ext_resource type="PackedScene" uid="uid://dg4x4ry7el8bh" path="res://assets/road-t-01.glb" id="8_btmgb"]
+[ext_resource type="PackedScene" uid="uid://c7av1vp7kcda6" path="res://assets/building-02-top-02.glb" id="9_rmdsm"]
+[ext_resource type="PackedScene" uid="uid://c6aa8vkyw52un" path="res://assets/building-02-top-01.glb" id="10_ygv6n"]
+[ext_resource type="PackedScene" uid="uid://ddctt5kwnfnj3" path="res://assets/building-01-top-01.glb" id="11_ygv6n"]
 
 [node name="LevelMeshLibrary" type="Node3D"]
 
@@ -14,3 +21,17 @@
 [node name="sidewalk-01" parent="." instance=ExtResource("1_yp4fd")]
 
 [node name="sidewalk-corner-012" parent="." instance=ExtResource("4_2c100")]
+
+[node name="road-corner-012" parent="." instance=ExtResource("5_54d6h")]
+
+[node name="building-022" parent="." instance=ExtResource("5_7w4bo")]
+
+[node name="road-crossing-012" parent="." instance=ExtResource("7_pti3a")]
+
+[node name="road-t-012" parent="." instance=ExtResource("8_btmgb")]
+
+[node name="building-02-top-022" parent="." instance=ExtResource("9_rmdsm")]
+
+[node name="building-02-top-012" parent="." instance=ExtResource("10_ygv6n")]
+
+[node name="building-01-top-01" parent="." instance=ExtResource("11_ygv6n")]
