@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctdgpb2jbghhh"]
+[gd_scene load_steps=8 format=3 uid="uid://ctdgpb2jbghhh"]
 
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
 [ext_resource type="PackedScene" uid="uid://rj4k4uxb2e2h" path="res://assets/level-01.glb" id="2_fqg4s"]
+[ext_resource type="PackedScene" uid="uid://e2mbyidy1784" path="res://objects/endPoint/endPoint.tscn" id="3_ted77"]
+[ext_resource type="MeshLibrary" uid="uid://ct3p6dsr6i1tk" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
 
 [sub_resource type="Environment" id="Environment_ihtsc"]
 fog_light_color = Color(0.587836, 0.545045, 0.468297, 1)
@@ -42,6 +44,9 @@ transform = Transform3D(1, 0, 0, 0, 0.683758, 0.729709, 0, -0.729709, 0.683758, 
 
 [node name="level-01" parent="." instance=ExtResource("2_fqg4s")]
 
+[node name="EndPoint" parent="." instance=ExtResource("3_ted77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 335.879, 139.999, 131.289)
+
 [node name="PhysicsTest" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9188, 139.999, 190.016)
 
@@ -53,3 +58,10 @@ material = SubResource("StandardMaterial3D_fqg4s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsTest"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("CylinderShape3D_fqg4s")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_ihtsc")
+cell_size = Vector3(10, 10, 10)
+data = {
+"cells": PackedInt32Array(5, 19, 0, 7, 17, 0, 4, 16, 0, 8, 20, 0, 4, 22, 0)
+}

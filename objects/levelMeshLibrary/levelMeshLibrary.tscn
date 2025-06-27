@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca64wi8msochd"]
+
+[ext_resource type="PackedScene" uid="uid://c2jai5bf8tmiq" path="res://assets/building-01.glb" id="1_djs33"]
+
+[node name="LevelMeshLibrary" type="Node3D"]
+
+[node name="building-012" parent="." instance=ExtResource("1_djs33")]
