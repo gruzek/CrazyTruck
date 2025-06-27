@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c2jai5bf8tmiq"
-path="res://.godot/imported/building-01.glb-bed2325b240a5b945875fbe64c51cefc.scn"
+uid="uid://dxta3mtwba6lu"
+path="res://.godot/imported/road-01.glb-89df57bf2ed14917ea1d7cdb0150daf8.scn"
 
 [deps]
 
-source_file="res://assets/building-01.glb"
-dest_files=["res://.godot/imported/building-01.glb-bed2325b240a5b945875fbe64c51cefc.scn"]
+source_file="res://assets/road-01.glb"
+dest_files=["res://.godot/imported/road-01.glb-89df57bf2ed14917ea1d7cdb0150daf8.scn"]
 
 [params]
 
@@ -22,7 +22,7 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=3
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
@@ -34,7 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:building-01": {
+"PATH:road-01": {
 "generate/physics": true
 }
 }

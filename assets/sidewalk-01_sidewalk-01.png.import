@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch3kqvg25w04h"
-path.s3tc="res://.godot/imported/building-01_building-01.png-6ee8efe8608e013175d5a96207241c62.s3tc.ctex"
+uid="uid://dyy1jmr80aloa"
+path.s3tc="res://.godot/imported/sidewalk-01_sidewalk-01.png-5f9667576eb911c7f185f0c40a96877f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ccbba2fc1a722591cb1f3848d6377430"
+"md5": "daa1f29e3d53df43f5e424083a1434c9"
 }
 
 [deps]
 
-source_file="res://assets/building-01_building-01.png"
-dest_files=["res://.godot/imported/building-01_building-01.png-6ee8efe8608e013175d5a96207241c62.s3tc.ctex"]
+source_file="res://assets/sidewalk-01_sidewalk-01.png"
+dest_files=["res://.godot/imported/sidewalk-01_sidewalk-01.png-5f9667576eb911c7f185f0c40a96877f.s3tc.ctex"]
 
 [params]
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctdgpb2jbghhh"]
+[gd_scene load_steps=7 format=3 uid="uid://ctdgpb2jbghhh"]
 
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
-[ext_resource type="PackedScene" uid="uid://rj4k4uxb2e2h" path="res://assets/level-01.glb" id="2_fqg4s"]
+[ext_resource type="MeshLibrary" uid="uid://cegwcdawjje1t" path="res://objects/levelMeshLibrary/meshLibrary.tres" id="3_ihtsc"]
 [ext_resource type="PackedScene" uid="uid://e2mbyidy1784" path="res://objects/endPoint/endPoint.tscn" id="3_ted77"]
-[ext_resource type="MeshLibrary" uid="uid://ct3p6dsr6i1tk" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
 
 [sub_resource type="Environment" id="Environment_ihtsc"]
 fog_light_color = Color(0.587836, 0.545045, 0.468297, 1)
@@ -32,8 +31,8 @@ environment = SubResource("Environment_ihtsc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.5, -0.612372, 0.612372, 0, 0.707107, 0.707107, -0.866025, 0.353553, -0.353553, 0, 135.85, 0)
-light_color = Color(0.95685, 0.944491, 0.915537, 1)
-light_energy = 2.0
+light_color = Color(0.880599, 0.847806, 0.771294, 1)
+light_energy = 1.75
 light_angular_distance = 90.0
 shadow_enabled = true
 shadow_bias = 0.2
@@ -41,8 +40,6 @@ shadow_normal_bias = 1.0
 
 [node name="TestCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.683758, 0.729709, 0, -0.729709, 0.683758, 69.5218, 175.901, 274.678)
-
-[node name="level-01" parent="." instance=ExtResource("2_fqg4s")]
 
 [node name="EndPoint" parent="." instance=ExtResource("3_ted77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 335.879, 139.999, 131.289)
@@ -60,8 +57,9 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("CylinderShape3D_fqg4s")
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("4_ihtsc")
-cell_size = Vector3(10, 10, 10)
+mesh_library = ExtResource("3_ihtsc")
+cell_size = Vector3(4, 18, 4)
 data = {
-"cells": PackedInt32Array(5, 19, 0, 7, 17, 0, 4, 16, 0, 8, 20, 0, 4, 22, 0)
+"cells": PackedInt32Array(48, 25, 1, 44, 25, 0, 40, 96, 0, 21, 96, 0, 32, 104, 0, 29, 96, 1, 28, 85, 1, 30, 85, 0, 32, 85, 1, 35, 85, 2, 38, 85, 1, 40, 85, 0, 40, 82, 0, 65576, 85, 0, 35, 88, 2, 35, 91, 2, 38, 88, 1, 38, 91, 1, 32, 88, 1, 32, 91, 1, 15, 49, 2, 15, 46, 2, 18, 46, 1, 18, 49, 1, 12, 46, 1, 12, 49, 1, 20, 46, 0, 20, 49, 0, 10, 46, 0, 10, 49, 0, 65556, 49, 0, 65546, 49, 0, 21, 64, 0, 65557, 64, 0, 131093, 64, 0, 19, 64, 1, 16, 64, 2, 13, 64, 1, 11, 64, 0, 21, 66, 1441793, 11, 66, 1441793, 11, 69, 1048578)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
