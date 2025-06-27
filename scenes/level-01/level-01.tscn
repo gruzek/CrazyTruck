@@ -1,14 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctdgpb2jbghhh"]
+[gd_scene load_steps=6 format=3 uid="uid://ctdgpb2jbghhh"]
 
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_fqg4s"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ted77"]
-albedo_color = Color(0.266575, 0.266575, 0.266575, 1)
+[ext_resource type="PackedScene" uid="uid://rj4k4uxb2e2h" path="res://assets/level-01.glb" id="2_fqg4s"]
 
 [sub_resource type="Environment" id="Environment_ihtsc"]
-fog_enabled = true
 fog_light_color = Color(0.587836, 0.545045, 0.468297, 1)
 fog_light_energy = 1.24
 fog_sun_scatter = 0.18
@@ -20,12 +15,12 @@ volumetric_fog_emission_energy = 0.0
 volumetric_fog_length = 37.74
 volumetric_fog_ambient_inject = 0.57
 
-[node name="Level-01" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqg4s"]
+albedo_color = Color(0.252028, 0.252028, 0.252028, 1)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
-mesh = SubResource("BoxMesh_fqg4s")
-surface_material_override/0 = SubResource("StandardMaterial3D_ted77")
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fqg4s"]
+
+[node name="Level-01" type="Node3D"]
 
 [node name="SpawnPoint" parent="." instance=ExtResource("1_rq5lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5124, 0, 44.1182)
@@ -34,9 +29,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5124, 0, 44.1182)
 environment = SubResource("Environment_ihtsc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.594427, -0.70829, -0.380765, -0.662578, 0.699708, -0.267204, 0.455682, 0.0934528, -0.885223, 0, 135.85, 0)
-light_color = Color(0.880599, 0.847806, 0.771293, 1)
-light_energy = 4.429
+transform = Transform3D(-0.5, -0.612372, 0.612372, 0, 0.707107, 0.707107, -0.866025, 0.353553, -0.353553, 0, 135.85, 0)
+light_color = Color(0.95685, 0.944491, 0.915537, 1)
+light_energy = 2.0
+light_angular_distance = 90.0
+shadow_enabled = true
+shadow_bias = 0.2
+shadow_normal_bias = 1.0
 
 [node name="TestCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.483343, 0.875431, 0, -0.875431, 0.483343, 0, 24.5514, 0)
+transform = Transform3D(1, 0, 0, 0, 0.683758, 0.729709, 0, -0.729709, 0.683758, 69.5218, 175.901, 274.678)
+
+[node name="level-01" parent="." instance=ExtResource("2_fqg4s")]
+
+[node name="PhysicsTest" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9188, 139.999, 190.016)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PhysicsTest"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+smooth_faces = false
+material = SubResource("StandardMaterial3D_fqg4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsTest"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("CylinderShape3D_fqg4s")

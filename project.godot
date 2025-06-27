@@ -15,6 +15,10 @@ run/main_scene="uid://b8j2p4q6y3nxk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[physics]
+
+3d/default_gravity_vector=Vector3(0, -5, 0)
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
