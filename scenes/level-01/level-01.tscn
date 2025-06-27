@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctdgpb2jbghhh"]
+
+[ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fqg4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ted77"]
+albedo_color = Color(0.266575, 0.266575, 0.266575, 1)
+
+[sub_resource type="Environment" id="Environment_ihtsc"]
+fog_enabled = true
+fog_light_color = Color(0.587836, 0.545045, 0.468297, 1)
+fog_light_energy = 1.24
+fog_sun_scatter = 0.18
+fog_density = 0.005
+fog_sky_affect = 0.752
+volumetric_fog_albedo = Color(0.69597, 0.642591, 0.614878, 1)
+volumetric_fog_emission = Color(0.55778, 0.517377, 0.460004, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_length = 37.74
+volumetric_fog_ambient_inject = 0.57
+
+[node name="Level-01" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_fqg4s")
+surface_material_override/0 = SubResource("StandardMaterial3D_ted77")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("1_rq5lv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5124, 0, 44.1182)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ihtsc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.594427, -0.70829, -0.380765, -0.662578, 0.699708, -0.267204, 0.455682, 0.0934528, -0.885223, 0, 135.85, 0)
+light_color = Color(0.880599, 0.847806, 0.771293, 1)
+light_energy = 4.429
+
+[node name="TestCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.483343, 0.875431, 0, -0.875431, 0.483343, 0, 24.5514, 0)

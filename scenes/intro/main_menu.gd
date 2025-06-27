@@ -6,7 +6,7 @@ func _ready():
 	$CenterContainer/VBoxContainer/ExitButton.pressed.connect(_on_exit_pressed)
 
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://scenes/worldMap/StrategicMap.tscn")
+	get_tree().change_scene_to_file("res://scenes/level-01/level-01.tscn")
 
 func _on_settings_pressed():
 	get_tree().change_scene_to_file("res://scenes/settings/SettingsMenu.tscn")
