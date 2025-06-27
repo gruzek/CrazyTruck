@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca64wi8msochd"]
+[gd_scene load_steps=5 format=3 uid="uid://ca64wi8msochd"]
 
 [ext_resource type="PackedScene" uid="uid://c2jai5bf8tmiq" path="res://assets/building-01.glb" id="1_djs33"]
 [ext_resource type="PackedScene" uid="uid://dnd8p8bjmd3ix" path="res://assets/sidewalk-01.glb" id="1_yp4fd"]
 [ext_resource type="PackedScene" uid="uid://dxta3mtwba6lu" path="res://assets/road-01.glb" id="3_xoeck"]
+[ext_resource type="PackedScene" uid="uid://c6mh5t43tflyl" path="res://assets/sidewalk-corner-01.glb" id="4_2c100"]
 
 [node name="LevelMeshLibrary" type="Node3D"]
 
 [node name="building-012" parent="." instance=ExtResource("1_djs33")]
 
-[node name="sidewalk-01" parent="." instance=ExtResource("1_yp4fd")]
-
 [node name="road-012" parent="." instance=ExtResource("3_xoeck")]
 
-[editable path="building-012"]
+[node name="sidewalk-01" parent="." instance=ExtResource("1_yp4fd")]
+
+[node name="sidewalk-corner-012" parent="." instance=ExtResource("4_2c100")]

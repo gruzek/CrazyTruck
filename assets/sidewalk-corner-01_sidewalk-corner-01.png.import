@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ih4v3xo07bl"
-path.s3tc="res://.godot/imported/road-01_road-01.png-fea4b13c486436102cf7eeb2e9e45e8c.s3tc.ctex"
+uid="uid://vlkncm7chf7g"
+path.s3tc="res://.godot/imported/sidewalk-corner-01_sidewalk-corner-01.png-9211993623b0149a674c61e312fe4739.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3f3b75225908c427ef0cdf85b81c8b9f"
+"md5": "daa1f29e3d53df43f5e424083a1434c9"
 }
 
 [deps]
 
-source_file="res://assets/road-01_road-01.png"
-dest_files=["res://.godot/imported/road-01_road-01.png-fea4b13c486436102cf7eeb2e9e45e8c.s3tc.ctex"]
+source_file="res://assets/sidewalk-corner-01_sidewalk-corner-01.png"
+dest_files=["res://.godot/imported/sidewalk-corner-01_sidewalk-corner-01.png-9211993623b0149a674c61e312fe4739.s3tc.ctex"]
 
 [params]
 

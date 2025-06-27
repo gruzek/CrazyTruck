@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctdgpb2jbghhh"]
 
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
-[ext_resource type="MeshLibrary" uid="uid://cegwcdawjje1t" path="res://objects/levelMeshLibrary/meshLibrary.tres" id="3_ihtsc"]
 [ext_resource type="PackedScene" uid="uid://e2mbyidy1784" path="res://objects/endPoint/endPoint.tscn" id="3_ted77"]
+[ext_resource type="MeshLibrary" uid="uid://t5hqu1hmjfjf" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
 
 [sub_resource type="Environment" id="Environment_ihtsc"]
 fog_light_color = Color(0.587836, 0.545045, 0.468297, 1)
@@ -57,9 +57,7 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("CylinderShape3D_fqg4s")
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_ihtsc")
-cell_size = Vector3(4, 18, 4)
+mesh_library = ExtResource("4_ihtsc")
 data = {
-"cells": PackedInt32Array(48, 25, 1, 44, 25, 0, 40, 96, 0, 21, 96, 0, 32, 104, 0, 29, 96, 1, 28, 85, 1, 30, 85, 0, 32, 85, 1, 35, 85, 2, 38, 85, 1, 40, 85, 0, 40, 82, 0, 65576, 85, 0, 35, 88, 2, 35, 91, 2, 38, 88, 1, 38, 91, 1, 32, 88, 1, 32, 91, 1, 15, 49, 2, 15, 46, 2, 18, 46, 1, 18, 49, 1, 12, 46, 1, 12, 49, 1, 20, 46, 0, 20, 49, 0, 10, 46, 0, 10, 49, 0, 65556, 49, 0, 65546, 49, 0, 21, 64, 0, 65557, 64, 0, 131093, 64, 0, 19, 64, 1, 16, 64, 2, 13, 64, 1, 11, 64, 0, 21, 66, 1441793, 11, 66, 1441793, 11, 69, 1048578)
+"cells": PackedInt32Array(6, 112, 1, 11, 112, 2, 1, 112, 2, 15, 113, 0, 15, 105, 0, 65533, 113, 0, 65533, 105, 0, 65533, 99, 0, 1, 104, 2, 11, 104, 2, 6, 104, 1)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
