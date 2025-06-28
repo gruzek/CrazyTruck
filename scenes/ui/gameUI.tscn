@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv2frmq38ha05"]
+
+[ext_resource type="PackedScene" uid="uid://fi0dee7x1wau" path="res://scenes/ui/messageDisplay.tscn" id="1_xfwsr"]
+[ext_resource type="PackedScene" uid="uid://ob4wxpyq8kic" path="res://scenes/ui/CountdownLabel.tscn" id="2_uvbjf"]
+[ext_resource type="Script" uid="uid://cbev3ppe0nstw" path="res://scenes/ui/countdown_label.gd" id="3_wncuf"]
+
+[node name="GameUi" type="CanvasLayer"]
+
+[node name="MessageDisplay" parent="." instance=ExtResource("1_xfwsr")]
+
+[node name="CountdownLabel" parent="." instance=ExtResource("2_uvbjf")]
+offset_left = 993.0
+offset_top = 7.0
+offset_right = 993.0
+offset_bottom = 7.0
+script = ExtResource("3_wncuf")

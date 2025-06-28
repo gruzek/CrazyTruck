@@ -7,7 +7,7 @@
 transparency = 1
 albedo_color = Color(0.776471, 0.615686, 0.545098, 0.666667)
 emission_enabled = true
-emission = Color(0.893293, 0.635137, 0.408053, 1)
+emission = Color(0.737255, 0, 0.0156863, 1)
 emission_energy_multiplier = 0.37
 
 [node name="Arrow" type="Node3D"]

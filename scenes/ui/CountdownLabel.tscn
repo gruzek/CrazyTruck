@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ob4wxpyq8kic"]
+
+[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/ui/fonts/Super Squad.otf" id="1_ed52p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7dxv3"]
+font = ExtResource("1_ed52p")
+font_size = 50
+font_color = Color(0.737255, 0, 0.0156863, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CountdownLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 142.0
+offset_bottom = 78.0
+text = "02:00"
+label_settings = SubResource("LabelSettings_7dxv3")

@@ -1,5 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctdgpb2jbghhh"]
+[gd_scene load_steps=14 format=3 uid="uid://ctdgpb2jbghhh"]
 
+[ext_resource type="Script" uid="uid://cjbbeq0do4f8q" path="res://scenes/level-01/level_01.gd" id="1_4re52"]
+[ext_resource type="PackedScene" uid="uid://bv2frmq38ha05" path="res://scenes/ui/gameUI.tscn" id="1_lm68v"]
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
 [ext_resource type="PackedScene" uid="uid://rj4k4uxb2e2h" path="res://assets/level-01.glb" id="2_fqg4s"]
 [ext_resource type="PackedScene" uid="uid://e2mbyidy1784" path="res://objects/endPoint/endPoint.tscn" id="3_ted77"]
@@ -33,6 +35,13 @@ albedo_color = Color(0.252028, 0.252028, 0.252028, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2olxg"]
 
 [node name="Level-01" type="Node3D"]
+script = ExtResource("1_4re52")
+
+[node name="GameUi" parent="." instance=ExtResource("1_lm68v")]
+
+[node name="MessageDisplay" parent="GameUi" index="0"]
+messages = Array[String](["CRAZY TRUCK !!", "Drive to next Ice Cream Location", "Don't Clobber People", "TRUCK  MALFUNCTIONS", "Don't get CLOCKED", "CRAZY as TRUCK!!"])
+sequence_duration = 4.0
 
 [node name="SpawnPoint" parent="." instance=ExtResource("1_rq5lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -375.552, 0, -263.689)
@@ -89,3 +98,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -328.192, 9.52898, -261.088)
 
 [node name="SpawnZone" parent="." instance=ExtResource("7_v34df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -328.192, 9.952, -266.266)
+
+[editable path="GameUi"]
