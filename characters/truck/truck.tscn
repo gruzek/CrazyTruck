@@ -33,10 +33,13 @@ size = Vector3(0.225708, 0.175171, 0.660034)
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_raock")
+gravity_scale = 2.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -1, 0)
-inertia = Vector3(2.5, 0, 2.5)
+inertia = Vector3(10, 0, 10)
 custom_integrator = true
+continuous_cd = true
+angular_damp = 0.5
 script = ExtResource("1_raock")
 
 [node name="TruckMesh" parent="RigidBody3D" instance=ExtResource("1_13si6")]
@@ -80,5 +83,13 @@ transform = Transform3D(0.52922, -0.149754, 0, 0.149754, 0.52922, 0, 0, 0, 0.55,
 
 [node name="BackRightRay" type="RayCast3D" parent="RigidBody3D"]
 transform = Transform3D(0.52922, -0.149754, 0, 0.149754, 0.52922, 0, 0, 0, 0.55, 2.99845, 0.582536, -0.988614)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.141058, 6.25831, 0)
+spring_length = 8.0
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.838671, 0.544639, 0, -0.544639, 0.838671, 0, 0, 0)
+current = true
 
 [editable path="RigidBody3D/TruckMesh"]

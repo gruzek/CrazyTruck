@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/road-corner-01.glb-9561e4581cb1fd125c4455eae8
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/apply_root_scale=true
+nodes/apply_root_scale=false
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
@@ -35,7 +35,9 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:road-corner-01": {
-"generate/physics": true
+"physics/physics_material_override": Object(PhysicsMaterial,"resource_local_to_scene":false,"resource_name":"","friction":1.0,"rough":true,"bounce":0.0,"absorbent":false,"script":null)
+,
+"physics/shape_type": 2
 }
 }
 }

@@ -35,7 +35,9 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:road-t-01": {
-"generate/physics": true
+"physics/physics_material_override": Object(PhysicsMaterial,"resource_local_to_scene":false,"resource_name":"","friction":1.0,"rough":true,"bounce":0.0,"absorbent":false,"script":null)
+,
+"physics/shape_type": 2
 }
 }
 }
