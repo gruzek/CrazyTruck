@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fi0dee7x1wau"]
 
-[ext_resource type="Script" uid="uid://c8bvtsy3sukgv" path="res://scenes/ui/message_display.gd" id="1_16a85"]
-[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/ui/fonts/Super Squad.otf" id="1_t3mii"]
+[ext_resource type="Script" uid="uid://c8bvtsy3sukgv" path="res://scenes/gameUI/message_display.gd" id="1_16a85"]
+[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/gameUI/fonts/Super Squad.otf" id="1_t3mii"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_16a85"]
 font = ExtResource("1_t3mii")

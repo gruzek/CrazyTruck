@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ob4wxpyq8kic"]
 
-[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/ui/fonts/Super Squad.otf" id="1_ed52p"]
+[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/gameUI/fonts/Super Squad.otf" id="1_ed52p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7dxv3"]
 font = ExtResource("1_ed52p")

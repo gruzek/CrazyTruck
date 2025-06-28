@@ -32,9 +32,9 @@ size = Vector3(0.225708, 0.175171, 0.660034)
 [node name="Truck" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_mask = 7
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_raock")
-gravity_scale = 2.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -1, 0)
 inertia = Vector3(10, 0, 10)
@@ -42,8 +42,6 @@ custom_integrator = true
 continuous_cd = true
 linear_damp_mode = 1
 linear_damp = 7.721
-angular_damp_mode = 1
-angular_damp = 5.208
 script = ExtResource("1_raock")
 
 [node name="TruckMesh" parent="RigidBody3D" instance=ExtResource("1_13si6")]

@@ -36,6 +36,8 @@ _subresources={
 "nodes": {
 "PATH:Level-01": {
 "generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 3,
 "physics/shape_type": 1
 }
 }

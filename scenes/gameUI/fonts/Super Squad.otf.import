@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dmdt6ucsbmqe7"
-path="res://.godot/imported/Super Squad.otf-dbf182968cb9ade3c4c3a01c06b31539.fontdata"
+path="res://.godot/imported/Super Squad.otf-55fb2bee0571120fbe953daf6bd6e95c.fontdata"
 
 [deps]
 
-source_file="res://scenes/ui/fonts/Super Squad.otf"
-dest_files=["res://.godot/imported/Super Squad.otf-dbf182968cb9ade3c4c3a01c06b31539.fontdata"]
+source_file="res://scenes/gameUI/fonts/Super Squad.otf"
+dest_files=["res://.godot/imported/Super Squad.otf-55fb2bee0571120fbe953daf6bd6e95c.fontdata"]
 
 [params]
 

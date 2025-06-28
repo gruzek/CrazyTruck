@@ -9,6 +9,8 @@ extends RigidBody3D
 @onready var back_right_ray: RayCast3D = $BackRightRay
 @onready var front_left_ray: RayCast3D = $FrontLeftRay
 
+signal game_over_clobbered
+
 func _physics_process(delta):
 	var velocity := linear_velocity
 	var forward := -transform.basis.x  # Your model faces -X
@@ -55,3 +57,10 @@ func _physics_process(delta):
 	velocity.x = horizontal_velocity.x
 	velocity.z = horizontal_velocity.z
 	linear_velocity = velocity
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider.is_in_group("person"):
+			print('clobbered')
+			emit_signal("game_over_clobbered")
