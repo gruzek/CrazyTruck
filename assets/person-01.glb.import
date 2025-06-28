@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dnd8p8bjmd3ix"
-path="res://.godot/imported/sidewalk-01.glb-e8f452ebc1e71d1f2a5853241bca85a7.scn"
+uid="uid://c6fvlnryjc368"
+path="res://.godot/imported/person-01.glb-6738fa77ea3f748450106a9805a59221.scn"
 
 [deps]
 
-source_file="res://assets/sidewalk-01.glb"
-dest_files=["res://.godot/imported/sidewalk-01.glb-e8f452ebc1e71d1f2a5853241bca85a7.scn"]
+source_file="res://assets/person-01.glb"
+dest_files=["res://.godot/imported/person-01.glb-6738fa77ea3f748450106a9805a59221.scn"]
 
 [params]
 
@@ -34,9 +34,15 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:sidewalk-01": {
+"PATH:man-01": {
 "generate/physics": true,
-"physics/shape_type": 2
+"physics/body_type": 1,
+"physics/shape_type": 1
+},
+"PATH:woman-01": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/shape_type": 1
 }
 }
 }

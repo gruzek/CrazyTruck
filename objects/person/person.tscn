@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfqw346p18j1b"]
+
+[ext_resource type="PackedScene" uid="uid://c6fvlnryjc368" path="res://assets/person-01.glb" id="1_uk5ok"]
+
+[node name="Person" type="Node3D"]
+
+[node name="man-01" parent="." instance=ExtResource("1_uk5ok")]
+
+[node name="woman-01" parent="man-01" index="1"]
+visible = false
+
+[node name="woman-01" parent="man-01/woman-01" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="man-01/woman-01" index="1"]
+visible = false
+
+[node name="woman-02" parent="man-01" instance=ExtResource("1_uk5ok")]
+
+[node name="man-01" parent="man-01/woman-02" index="0"]
+visible = false
+
+[node name="man-01" parent="man-01/woman-02/man-01" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="man-01/woman-02/man-01" index="1"]
+visible = false
+
+[editable path="man-01"]
+[editable path="man-01/woman-02"]

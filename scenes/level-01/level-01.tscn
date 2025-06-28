@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
 [ext_resource type="PackedScene" uid="uid://rj4k4uxb2e2h" path="res://assets/level-01.glb" id="2_fqg4s"]
 [ext_resource type="PackedScene" uid="uid://e2mbyidy1784" path="res://objects/endPoint/endPoint.tscn" id="3_ted77"]
-[ext_resource type="MeshLibrary" uid="uid://bqp5p608lt1eb" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
+[ext_resource type="MeshLibrary" uid="uid://6kothkaviw1g" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
 [ext_resource type="PackedScene" uid="uid://drfdd6v1ylluj" path="res://characters/truck/truck.tscn" id="5_2olxg"]
 
 [sub_resource type="Environment" id="Environment_ihtsc"]

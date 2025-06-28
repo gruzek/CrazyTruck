@@ -1,43 +1,51 @@
 extends RigidBody3D
 
-@export var acceleration := 15.0
-@export var max_speed := 30.0
-@export var brake_force := 20.0
-@export var turn_speed := 1.5
-@export var friction := 8.0
-
-var velocity := Vector3.ZERO
+@export var acceleration := 48.0
+@export var max_speed := 60.0
+@export var turn_speed := 2.5
+@export var friction := 6.0
+@onready var front_right_ray: RayCast3D = $FrontRightRay
+@onready var back_left_ray: RayCast3D = $BackLeftRay
+@onready var back_right_ray: RayCast3D = $BackRightRay
+@onready var front_left_ray: RayCast3D = $FrontLeftRay
 
 func _physics_process(delta):
-	var forward_dir = -transform.basis.z.normalized()  # forward = negative Z
-	var right_dir = transform.basis.x.normalized()
+	var velocity := linear_velocity
+	var forward := -transform.basis.x  # Your model faces -X
+	var drive := 0.0
 
-	# Acceleration / Brake
-	var input_dir = 0.0
+	# ✅ Apply gravity manually!
+	velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
+	
+	# Input: W/S for forward/back
 	if Input.is_action_pressed("move_forward"):
-		input_dir += 1.0
-	if Input.is_action_pressed("move_back"):
-		input_dir -= 1.0
+		drive += -1.0
+	if Input.is_action_pressed("move_backward"):
+		drive -= -1.0
 
-	# Apply forward force
-	if input_dir != 0.0:
-		velocity += forward_dir * input_dir * acceleration * delta
-	else:
-		# Apply friction
-		velocity -= velocity * friction * delta
+	# Movement force
+	var horizontal_velocity = velocity
+	horizontal_velocity.y = 0  # Ignore vertical motion for driving
+	horizontal_velocity = horizontal_velocity.move_toward(
+		forward * drive * max_speed,
+		acceleration * delta
+	)
 
-	# Clamp to max speed
-	if velocity.length() > max_speed:
-		velocity = velocity.normalized() * max_speed
+	# Apply friction when no input
+	if drive == 0:
+		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, friction * delta)
 
-	# Apply turning only when moving
-	if velocity.length() > 0.1:
-		var turn_input := 0.0
+	# Steering (only when moving)
+	if horizontal_velocity.length() > 0.1:
+		var turn := 0.0
 		if Input.is_action_pressed("turn_left"):
-			turn_input += 1.0
+			turn += 1.0
 		if Input.is_action_pressed("turn_right"):
-			turn_input -= 1.0
-		rotate_y(turn_input * turn_speed * delta)
+			turn -= 1.0
+		rotate_y(turn * turn_speed * delta)
 
-	# Move the truck
+
+	# Apply new velocity, preserve gravity
+	velocity.x = horizontal_velocity.x
+	velocity.z = horizontal_velocity.z
 	linear_velocity = velocity
