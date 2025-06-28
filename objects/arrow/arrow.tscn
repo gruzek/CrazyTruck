@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcnu8lxkq7mc7"]
+
+[ext_resource type="PackedScene" uid="uid://cpmsswy3oa8cy" path="res://assets/Arrow.glb" id="1_qwjvh"]
+[ext_resource type="Script" uid="uid://c63b4d4e2u4nf" path="res://objects/arrow/arrow.gd" id="2_ufeo2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwjvh"]
+transparency = 1
+albedo_color = Color(0.776471, 0.615686, 0.545098, 0.666667)
+emission_enabled = true
+emission = Color(0.893293, 0.635137, 0.408053, 1)
+emission_energy_multiplier = 0.37
+
+[node name="Arrow" type="Node3D"]
+
+[node name="Arrow2" parent="." instance=ExtResource("1_qwjvh")]
+script = ExtResource("2_ufeo2")
+
+[node name="Arrow" parent="Arrow2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qwjvh")
+
+[editable path="Arrow2"]

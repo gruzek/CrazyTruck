@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c6fvlnryjc368"
-path="res://.godot/imported/person-01.glb-6738fa77ea3f748450106a9805a59221.scn"
+uid="uid://cpmsswy3oa8cy"
+path="res://.godot/imported/Arrow.glb-203b9543cb7aa5eeda4c0eef7d9d3204.scn"
 
 [deps]
 
-source_file="res://assets/person-01.glb"
-dest_files=["res://.godot/imported/person-01.glb-6738fa77ea3f748450106a9805a59221.scn"]
+source_file="res://assets/Arrow.glb"
+dest_files=["res://.godot/imported/Arrow.glb-203b9543cb7aa5eeda4c0eef7d9d3204.scn"]
 
 [params]
 
@@ -32,17 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:man-01": {
-"physics/body_type": 1,
-"physics/shape_type": 1
-},
-"PATH:woman-01": {
-"physics/body_type": 1,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

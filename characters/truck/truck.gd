@@ -44,7 +44,13 @@ func _physics_process(delta):
 			turn -= 1.0
 		rotate_y(turn * turn_speed * delta)
 
+	var current_rotation = rotation_degrees
 
+	# Clamp pitch and roll (X and Z), allow yaw (Y) to rotate freely
+	current_rotation.x = clamp(current_rotation.x, -10.0, 10.0)
+	current_rotation.z = clamp(current_rotation.z, -10.0, 10.0)
+	rotation_degrees = current_rotation
+	
 	# Apply new velocity, preserve gravity
 	velocity.x = horizontal_velocity.x
 	velocity.z = horizontal_velocity.z
