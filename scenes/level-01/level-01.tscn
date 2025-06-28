@@ -66,8 +66,8 @@ material = SubResource("StandardMaterial3D_fqg4s")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("CylinderShape3D_fqg4s")
 
-[node name="level-01" parent="." instance=ExtResource("2_fqg4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.95573, 0)
+[node name="floor" parent="." instance=ExtResource("2_fqg4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188461, 8.51872, -0.0418091)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_ihtsc")
