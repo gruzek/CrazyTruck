@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3i3loi3h21bp"
+path="res://.godot/imported/ElevenLabs_2025-06-29T16_25_14_Jerome the Ice Cream Truck Driver_gen_sp100_s50_sb75_se0_b_m2.mp3-f18de084d0e028a25305b61ee061b1b4.mp3str"
+
+[deps]
+
+source_file="res://sounds/ElevenLabs_2025-06-29T16_25_14_Jerome the Ice Cream Truck Driver_gen_sp100_s50_sb75_se0_b_m2.mp3"
+dest_files=["res://.godot/imported/ElevenLabs_2025-06-29T16_25_14_Jerome the Ice Cream Truck Driver_gen_sp100_s50_sb75_se0_b_m2.mp3-f18de084d0e028a25305b61ee061b1b4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://drfdd6v1ylluj"]
+[gd_scene load_steps=24 format=3 uid="uid://drfdd6v1ylluj"]
 
 [ext_resource type="PackedScene" uid="uid://dp3hnb6m8fcfh" path="res://assets/Truck.glb" id="1_13si6"]
 [ext_resource type="Script" uid="uid://ccf4x8gm6ig3o" path="res://characters/truck/truck.gd" id="1_raock"]
 [ext_resource type="PackedScene" uid="uid://bcnu8lxkq7mc7" path="res://objects/arrow/arrow.tscn" id="3_wv3oc"]
+[ext_resource type="AudioStream" uid="uid://d2xrt72xeor02" path="res://sounds/HeavyEngineIdling.mp3" id="4_gs1vv"]
+[ext_resource type="AudioStream" uid="uid://jmdmbv1dxns7" path="res://sounds/Reverse.mp3" id="5_ixk6k"]
+[ext_resource type="AudioStream" uid="uid://kiu2l2gjfv3u" path="res://sounds/weirdboing.mp3" id="6_eipv1"]
+[ext_resource type="AudioStream" uid="uid://bsc1pyb7v6f12" path="res://sounds/TruckFeelinInterpretative.mp3" id="7_4ency"]
+[ext_resource type="AudioStream" uid="uid://cl7h85xu38bk7" path="res://sounds/GasLeaking.mp3" id="7_yrhdx"]
+[ext_resource type="AudioStream" uid="uid://cdg8vk230am6s" path="res://sounds/GoGoJuiceLeaking.mp3" id="9_7klak"]
+[ext_resource type="AudioStream" uid="uid://yre8a7xo2mqs" path="res://sounds/partsRattling5s2.mp3" id="9_rchap"]
+[ext_resource type="AudioStream" uid="uid://ctm3vqlmypkeo" path="res://sounds/WhoNeedsBrakePads.mp3" id="10_4ency"]
+[ext_resource type="AudioStream" uid="uid://csuegm58d0i4w" path="res://sounds/LetsTruckinGo.mp3" id="11_27m4h"]
+[ext_resource type="AudioStream" uid="uid://b5m1uihac6c8v" path="res://sounds/ElevenLabs_2025-06-29T16_22_58_Jerome the Ice Cream Truck Driver_gen_sp100_s50_sb75_se0_b_m2.mp3" id="13_sm1aj"]
+[ext_resource type="AudioStream" uid="uid://6g61cvj4vd3b" path="res://sounds/OkWorksAgain.mp3" id="14_27m4h"]
+[ext_resource type="AudioStream" uid="uid://dvxahps6vyxoj" path="res://sounds/LetsTruckinGoExaggerated.mp3" id="15_sm1aj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wv3oc"]
 bounce = 0.1
@@ -89,5 +101,63 @@ current = true
 
 [node name="Arrow" parent="RigidBody3D/SpringArm3D/Camera3D" instance=ExtResource("3_wv3oc")]
 transform = Transform3D(-2.48128e-08, -1.92038e-09, -0.5, -0.272319, 0.419335, 1.19035e-08, 0.419335, 0.272319, -2.18557e-08, 5.56889e-07, 7.10103, -10.5794)
+
+[node name="NitroVoice01" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+
+[node name="Audio" type="Node3D" parent="RigidBody3D"]
+
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39182, 1.2143, 0)
+stream = ExtResource("4_gs1vv")
+
+[node name="ReverseAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("5_ixk6k")
+volume_db = -5.778
+
+[node name="SteeringSoundAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("6_eipv1")
+
+[node name="SteeringVoiceAudio01" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("7_4ency")
+volume_db = 10.0
+
+[node name="NitroSoundAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("7_yrhdx")
+volume_db = 38.222
+
+[node name="NitroVoiceAudio01" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("9_7klak")
+volume_db = 10.0
+
+[node name="BrakeSoundAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("10_4ency")
+volume_db = 23.778
+
+[node name="BrakeVoiceAudio01" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("11_27m4h")
+volume_db = 10.0
+
+[node name="ThrustSoundAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("9_rchap")
+volume_db = 39.111
+
+[node name="ThrustVoiceAudio01" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("13_sm1aj")
+volume_db = 10.0
+
+[node name="NormalVoiceAudio01" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("14_27m4h")
+volume_db = 10.0
+
+[node name="LetsTruckingGo" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+stream = ExtResource("15_sm1aj")
+volume_db = 10.0
+
+[node name="Timer" type="Timer" parent="RigidBody3D/Audio"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="RigidBody3D/Audio/Timer" to="RigidBody3D" method="_play_letstruckinggo"]
 
 [editable path="RigidBody3D/TruckMesh"]

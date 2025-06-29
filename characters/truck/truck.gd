@@ -16,6 +16,18 @@ extends RigidBody3D
 @onready var back_right_ray: RayCast3D = $BackRightRay
 @onready var front_left_ray: RayCast3D = $FrontLeftRay
 
+@onready var engine_audio: AudioStreamPlayer3D = $Audio/EngineAudio
+@onready var reverse_audio: AudioStreamPlayer3D = $Audio/ReverseAudio
+@onready var steering_sound_audio: AudioStreamPlayer3D = $Audio/SteeringSoundAudio
+@onready var steering_voice_audio_01: AudioStreamPlayer3D = $Audio/SteeringVoiceAudio01
+@onready var nitro_sound_audio: AudioStreamPlayer3D = $Audio/NitroSoundAudio
+@onready var nitro_voice_audio_01: AudioStreamPlayer3D = $Audio/NitroVoiceAudio01
+@onready var brake_sound_audio: AudioStreamPlayer3D = $Audio/BrakeSoundAudio
+@onready var brake_voice_audio_01: AudioStreamPlayer3D = $Audio/BrakeVoiceAudio01
+@onready var thrust_sound_audio: AudioStreamPlayer3D = $Audio/ThrustSoundAudio
+@onready var thrust_voice_audio_01: AudioStreamPlayer3D = $Audio/ThrustVoiceAudio01
+@onready var normal_voice_audio_01: AudioStreamPlayer3D = $Audio/NormalVoiceAudio01
+@onready var lets_trucking_go: AudioStreamPlayer3D = $Audio/LetsTruckingGo
 
 signal game_over_clobbered
 
@@ -97,8 +109,11 @@ func _physics_process(delta):
 	# Input: W/S for forward/back
 	if Input.is_action_pressed("move_forward"):
 		drive += _forward
+		reverse_audio.stop()
 	if Input.is_action_pressed("move_backward"):
 		drive += _backward
+		if ! reverse_audio.playing: 
+			reverse_audio.play()
 
 	# malfunctions
 	if _is_nitrous_malfunction:
@@ -141,8 +156,15 @@ func _physics_process(delta):
 	if collision:
 		var collider = collision.get_collider()
 		if collider.is_in_group("person"):
-			print('clobbered')
 			emit_signal("game_over_clobbered")
+	
+	# Audio
+	if not engine_audio.playing:
+		engine_audio.play()
+	var speed = velocity.length()
+	var normalized_speed = clampf(speed / max_speed, 0.0, 1.0)
+	var curved = pow(normalized_speed, 1.1)  # steeper curve
+	engine_audio.pitch_scale = clampf(0.8 + curved * 0.7, 1.0, 1.5)
 
 func _malfunction() -> void:
 	print("malfunction() _is_notice_generated: ", _is_notice_generated, " _is_malfunction_started: ", _is_malfunction_started)
@@ -176,33 +198,54 @@ func _process_malfunction_notice() -> void:
 	print("_process_malfunction_notice() ", _next_malfunction, " notice")
 	_is_notice_generated = true
 	_malfunction_start_timer.start()
+	
 	match _next_malfunction:
 		"steering_malfunction":
+			steering_sound_audio.play()
 			steering_malfunction.emit()
 		"brake_malfunction":
+			brake_sound_audio.play()
 			brake_malfunction.emit()
 		"thrust_malfunction":
+			thrust_sound_audio.play()
 			thrust_malfunction.emit()
 		"nitrous_malfunction":
+			nitro_sound_audio.play()
 			nitrous_malfunction.emit()
 
+func _play_steering_voice() -> void:
+	steering_voice_audio_01.play()
+
+func _play_brake_voice() -> void:
+	brake_voice_audio_01.play()
+	
+func _play_thrust_voice() -> void:
+	thrust_voice_audio_01.play()
+	
+func _play_nitro_voice() -> void:
+	nitro_voice_audio_01.play()
+	
 func _process_malfunction() -> void:
 	print("_process_malfunction() ", _next_malfunction)
 	match _next_malfunction:
 		"steering_malfunction":
 			_switch_left_right()
 			steering_malfunction_started.emit()
+			_play_steering_voice()
 		"brake_malfunction":
 			_is_brake_malfunction = true
 			_sputter()
 			brake_malfunction_started.emit()
+			_play_brake_voice()
 		"thrust_malfunction":
 			_is_thrust_malfunction = true
 			_sputter()
 			thrust_malfunction_started.emit()
+			_play_thrust_voice()
 		"nitrous_malfunction":
 			_is_nitrous_malfunction = true
 			nitrous_malfunction_started.emit()
+			_play_nitro_voice()
 	var malfunction_duration = randf_range(min_malfunction_duration_seconds, max_malfunction_duration_seconds)
 	_is_notice_generated = false
 	_is_malfunction_started = true
@@ -259,5 +302,8 @@ func _malfunction_finished() -> void:
 		"nitrous_malfunction":
 			_is_nitrous_malfunction = false
 	operating_normal.emit()
+	normal_voice_audio_01.play()
 	_calc_malfunction()
 	
+func _play_letstruckinggo() -> void:
+	lets_trucking_go.play() # Replace with function body.

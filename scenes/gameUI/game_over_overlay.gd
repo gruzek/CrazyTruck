@@ -14,7 +14,6 @@ func _ready() -> void:
 	menu_button.pressed.connect(emit_main_menu)
 
 func game_over_clobbered() -> void:
-	print("They Be Clobbered")
 	show_game_over('They be Clobbered')
 	
 func show_game_over(message: String) -> void:

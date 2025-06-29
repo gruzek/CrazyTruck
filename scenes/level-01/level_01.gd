@@ -13,7 +13,7 @@ var _brake_messages : Array[String] = [
 	"Slowing Down is for Wimps", 
 	"I Brake for ... Nothing"]
 var _thrust_messages : Array[String] = [
-	"Let's just do this Backwards", 
+	"No Gas. No Gas. No Gas.", 
 	"Come on Bessie, Don't Stop Now", 
 	"Where did I put that Gas Pedal?"]
 var _steering_messages : Array[String] = [
