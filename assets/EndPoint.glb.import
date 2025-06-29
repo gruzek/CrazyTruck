@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://rj4k4uxb2e2h"
-path="res://.godot/imported/level-01.glb-506e5e93c25d973951a068b7e9fe163f.scn"
+uid="uid://bey4iu7yg0pe3"
+path="res://.godot/imported/EndPoint.glb-a9b178c36fce67309bc1b90752090134.scn"
 
 [deps]
 
-source_file="res://assets/level-01.glb"
-dest_files=["res://.godot/imported/level-01.glb-506e5e93c25d973951a068b7e9fe163f.scn"]
+source_file="res://assets/EndPoint.glb"
+dest_files=["res://.godot/imported/EndPoint.glb-a9b178c36fce67309bc1b90752090134.scn"]
 
 [params]
 
@@ -34,10 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Level-01": {
-"physics/layer": 4,
-"physics/mask": 3,
-"physics/shape_type": 1
+"PATH:Cone": {
+"physics/layer": 8,
+"physics/physics_material_override": Object(PhysicsMaterial,"resource_local_to_scene":false,"resource_name":"","friction":1.0,"rough":false,"bounce":0.0,"absorbent":false,"script":null)
+
 }
 }
 }

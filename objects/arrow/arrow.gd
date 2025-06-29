@@ -10,7 +10,7 @@ func _ready():
 	if end_point == null:
 		push_warning("EndPoint not found in the scene.")
 		
-func _process(delta):
+func _process(_delta):
 	if not end_point:
 		return
 		

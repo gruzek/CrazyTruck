@@ -1,7 +1,6 @@
 extends Control
 @onready var fade_timer = $FadeTimer
 @onready var sequence_timer: Timer = $SequenceTimer
-@onready var anim_player = $AnimationPlayer
 @onready var label: Label = $MessageLabel
 
 @export var messages: Array[String] = []

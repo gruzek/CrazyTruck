@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctdgpb2jbghhh"]
+[gd_scene load_steps=14 format=3 uid="uid://ctdgpb2jbghhh"]
 
 [ext_resource type="Script" uid="uid://cjbbeq0do4f8q" path="res://scenes/level-01/level_01.gd" id="1_4re52"]
 [ext_resource type="PackedScene" uid="uid://bv2frmq38ha05" path="res://scenes/gameUI/gameUI.tscn" id="1_lm68v"]
 [ext_resource type="PackedScene" uid="uid://ctdbc8tik1c7w" path="res://objects/spawnPoint/spawnPoint.tscn" id="1_rq5lv"]
 [ext_resource type="PackedScene" uid="uid://rj4k4uxb2e2h" path="res://assets/level-01.glb" id="2_fqg4s"]
 [ext_resource type="PackedScene" uid="uid://e2mbyidy1784" path="res://objects/endPoint/endPoint.tscn" id="3_ted77"]
-[ext_resource type="MeshLibrary" uid="uid://bqvjq01e5mboo" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
+[ext_resource type="MeshLibrary" uid="uid://0064aaxxwyni" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
 [ext_resource type="PackedScene" uid="uid://drfdd6v1ylluj" path="res://characters/truck/truck.tscn" id="5_2olxg"]
 [ext_resource type="PackedScene" uid="uid://bfqw346p18j1b" path="res://characters/person/person.tscn" id="6_20jq4"]
 
@@ -31,7 +31,11 @@ albedo_color = Color(0.252028, 0.252028, 0.252028, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fqg4s"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lm68v"]
+rough = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_2olxg"]
+size = Vector3(1000, 1, 1000)
 
 [node name="Level-01" type="Node3D"]
 script = ExtResource("1_4re52")
@@ -39,8 +43,8 @@ script = ExtResource("1_4re52")
 [node name="GameUi" parent="." instance=ExtResource("1_lm68v")]
 
 [node name="MessageDisplay" parent="GameUi" index="0"]
-messages = Array[String](["CRAZY TRUCK !!", "Drive to next Ice Cream Location", "Don't Clobber People", "TRUCK  MALFUNCTIONS", "Don't get CLOCKED", "CRAZY as TRUCK!!"])
-sequence_duration = 4.0
+messages = Array[String](["CRAZY as TRUCK!!", "Drive to next Ice Cream Location", "Don't Clobber People", "Don't get CLOCKED"])
+sequence_duration = 3.0
 
 [node name="SpawnPoint" parent="." instance=ExtResource("1_rq5lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -375.552, 0, -263.689)
@@ -59,7 +63,7 @@ directional_shadow_mode = 1
 directional_shadow_max_distance = 1000.0
 
 [node name="EndPoint" parent="." instance=ExtResource("3_ted77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.22, 0, 305.575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -258.32, 10, -225.952)
 
 [node name="PhysicsTest" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9188, 139.999, 190.016)
@@ -91,16 +95,26 @@ transform = Transform3D(-0.995914, 0, -0.0903022, 0, 1, 0, 0.0903022, 0, -0.9959
 [node name="Person" parent="." groups=["person"] instance=ExtResource("6_20jq4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -328.192, 9.52898, -261.088)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 4
-collision_mask = 7
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_lm68v")
 
-[node name="FloorCollisionShape" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, 8.57412, 0)
+[node name="FloorCollisionShape" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.39345, 0)
 shape = SubResource("BoxShape3D_2olxg")
+debug_color = Color(0, 0.6, 0.701961, 0.854902)
 
+[connection signal="brake_malfunction" from="Truck/RigidBody3D" to="." method="brake_message"]
+[connection signal="brake_malfunction_started" from="Truck/RigidBody3D" to="GameUi/MalfunctionIcon" method="show_brake_icon"]
 [connection signal="game_over_clobbered" from="Truck/RigidBody3D" to="GameUi/GameOverOverlay" method="game_over_clobbered"]
+[connection signal="nitrous_malfunction" from="Truck/RigidBody3D" to="." method="nitrous_message"]
+[connection signal="nitrous_malfunction_started" from="Truck/RigidBody3D" to="GameUi/MalfunctionIcon" method="show_nitrous_icon"]
+[connection signal="operating_normal" from="Truck/RigidBody3D" to="." method="normal_message"]
+[connection signal="steering_malfunction" from="Truck/RigidBody3D" to="." method="steering_message"]
+[connection signal="steering_malfunction_started" from="Truck/RigidBody3D" to="GameUi/MalfunctionIcon" method="show_steering_icon"]
+[connection signal="thrust_malfunction" from="Truck/RigidBody3D" to="." method="thrust_message"]
+[connection signal="thrust_malfunction_started" from="Truck/RigidBody3D" to="GameUi/MalfunctionIcon" method="show_thrust_icon"]
 
 [editable path="GameUi"]
+[editable path="GameUi/MessageDisplay"]
 [editable path="Truck"]
 [editable path="Truck/RigidBody3D/TruckMesh"]

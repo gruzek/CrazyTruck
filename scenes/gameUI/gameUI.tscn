@@ -1,19 +1,105 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv2frmq38ha05"]
+[gd_scene load_steps=13 format=3 uid="uid://bv2frmq38ha05"]
 
 [ext_resource type="PackedScene" uid="uid://fi0dee7x1wau" path="res://scenes/gameUI/messageDisplay.tscn" id="1_xfwsr"]
 [ext_resource type="PackedScene" uid="uid://ob4wxpyq8kic" path="res://scenes/gameUI/CountdownLabel.tscn" id="2_uvbjf"]
 [ext_resource type="Script" uid="uid://cbev3ppe0nstw" path="res://scenes/gameUI/countdown_label.gd" id="3_wncuf"]
 [ext_resource type="PackedScene" uid="uid://biva1tfp64phd" path="res://scenes/gameUI/gameOverOverlay.tscn" id="4_33y75"]
+[ext_resource type="Script" uid="uid://7nhvucvv34s6" path="res://scenes/gameUI/malfunction_icon.gd" id="5_7m86o"]
+[ext_resource type="Texture2D" uid="uid://2crbc7xlpvxi" path="res://assets/malfunction_brake.png" id="6_cxrtf"]
+[ext_resource type="Texture2D" uid="uid://dulmexr15ahi0" path="res://assets/malfunction_thrust.png" id="6_yrgpx"]
+[ext_resource type="Texture2D" uid="uid://twp01i7w7pco" path="res://assets/malfunction_nitrous.png" id="8_0p6tf"]
+[ext_resource type="Texture2D" uid="uid://y1chk2mcd37y" path="res://assets/malfunction_steering.png" id="9_sq5ag"]
+
+[sub_resource type="Animation" id="Animation_yrgpx"]
+resource_name = "flashing"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MalfunctionIcon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_0p6tf"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sq5ag"]
+_data = {
+&"RESET": SubResource("Animation_0p6tf"),
+&"flashing": SubResource("Animation_yrgpx")
+}
 
 [node name="GameUi" type="CanvasLayer"]
 
 [node name="MessageDisplay" parent="." instance=ExtResource("1_xfwsr")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 196.0
+offset_bottom = 196.0
+grow_vertical = 1
 
 [node name="CountdownLabel" parent="." instance=ExtResource("2_uvbjf")]
-offset_left = 993.0
-offset_top = 7.0
-offset_right = 993.0
-offset_bottom = 7.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -153.0
+offset_top = 10.0
+offset_right = -153.0
+offset_bottom = 10.0
+grow_horizontal = 0
 script = ExtResource("3_wncuf")
 
 [node name="GameOverOverlay" parent="." instance=ExtResource("4_33y75")]
+visible = false
+
+[node name="MalfunctionIcon" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 61.0
+offset_bottom = 60.0
+scale = Vector2(0.4, 0.4)
+script = ExtResource("5_7m86o")
+
+[node name="ThrustIcon" type="TextureRect" parent="MalfunctionIcon"]
+visible = false
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("6_yrgpx")
+
+[node name="BrakeIcon" type="TextureRect" parent="MalfunctionIcon"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_cxrtf")
+
+[node name="NitrousIcon" type="TextureRect" parent="MalfunctionIcon"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_0p6tf")
+
+[node name="SteeringIcon" type="TextureRect" parent="MalfunctionIcon"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_sq5ag")
+
+[node name="FlashingIcons" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sq5ag")
+}
+autoplay = "flashing"
