@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctdgpb2jbghhh"]
+[gd_scene load_steps=15 format=3 uid="uid://ctdgpb2jbghhh"]
 
 [ext_resource type="Script" uid="uid://cjbbeq0do4f8q" path="res://scenes/level-01/level_01.gd" id="1_4re52"]
 [ext_resource type="PackedScene" uid="uid://bv2frmq38ha05" path="res://scenes/gameUI/gameUI.tscn" id="1_lm68v"]
@@ -8,6 +8,7 @@
 [ext_resource type="MeshLibrary" uid="uid://0064aaxxwyni" path="res://objects/levelMeshLibrary/levelMeshLibrary.tres" id="4_ihtsc"]
 [ext_resource type="PackedScene" uid="uid://drfdd6v1ylluj" path="res://characters/truck/truck.tscn" id="5_2olxg"]
 [ext_resource type="PackedScene" uid="uid://bfqw346p18j1b" path="res://characters/person/person.tscn" id="6_20jq4"]
+[ext_resource type="PackedScene" uid="uid://clgyxs4pv6h0n" path="res://characters/person/spawn_zone_v_2.tscn" id="9_4re52"]
 
 [sub_resource type="Environment" id="Environment_ihtsc"]
 ambient_light_color = Color(0.374139, 0.374139, 0.374139, 1)
@@ -102,6 +103,27 @@ physics_material_override = SubResource("PhysicsMaterial_lm68v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.39345, 0)
 shape = SubResource("BoxShape3D_2olxg")
 debug_color = Color(0, 0.6, 0.701961, 0.854902)
+
+[node name="spawn_zone" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.995, 10.7897, -245.075)
+
+[node name="spawn_zone2" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -346.927, 10.7897, -245.01)
+
+[node name="spawn_zone3" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(0.00450295, 0, 0.99999, 0, 1, 0, -0.99999, 0, 0.00450295, -336.954, 10.7362, -275.069)
+
+[node name="spawn_zone4" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -301.063, 10.9102, -215.062)
+
+[node name="spawn_zone5" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -301.06, 10.9102, -235.094)
+
+[node name="spawn_zone6" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -285.219, 10.9102, -215.062)
+
+[node name="spawn_zone7" parent="." instance=ExtResource("9_4re52")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -285.216, 10.9102, -235.094)
 
 [connection signal="brake_malfunction" from="Truck/RigidBody3D" to="." method="brake_message"]
 [connection signal="brake_malfunction_started" from="Truck/RigidBody3D" to="GameUi/MalfunctionIcon" method="show_brake_icon"]

@@ -9,9 +9,10 @@ albedo_color = Color(0.113725, 1, 1, 0.247059)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jd1y0"]
 material = SubResource("StandardMaterial3D_ebyxf")
-size = Vector3(4, 3, 8)
+size = Vector3(4, 3, 16)
 
 [node name="spawn_zone" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_jd1y0")
 script = ExtResource("1_gc0p5")
 person_scene = ExtResource("2_ebyxf")
+persons_to_spawn = 4
