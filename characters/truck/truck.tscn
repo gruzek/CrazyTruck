@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://drfdd6v1ylluj"]
+[gd_scene load_steps=26 format=3 uid="uid://drfdd6v1ylluj"]
 
 [ext_resource type="PackedScene" uid="uid://dp3hnb6m8fcfh" path="res://assets/Truck.glb" id="1_13si6"]
 [ext_resource type="Script" uid="uid://ccf4x8gm6ig3o" path="res://characters/truck/truck.gd" id="1_raock"]
@@ -15,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://b5m1uihac6c8v" path="res://sounds/ElevenLabs_2025-06-29T16_22_58_Jerome the Ice Cream Truck Driver_gen_sp100_s50_sb75_se0_b_m2.mp3" id="13_sm1aj"]
 [ext_resource type="AudioStream" uid="uid://6g61cvj4vd3b" path="res://sounds/OkWorksAgain.mp3" id="14_27m4h"]
 [ext_resource type="AudioStream" uid="uid://dvxahps6vyxoj" path="res://sounds/LetsTruckinGoExaggerated.mp3" id="15_sm1aj"]
+[ext_resource type="AudioStream" uid="uid://c4lh3ff57p3aj" path="res://sounds/Squeaking-01.mp3" id="16_iua7u"]
+[ext_resource type="AudioStream" uid="uid://j7flw2p56ier" path="res://sounds/squeaking-02.mp3" id="17_c0c16"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wv3oc"]
 bounce = 0.1
@@ -157,6 +159,16 @@ volume_db = 10.0
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="LeftSqueakingAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73483, 0, 1.38121)
+stream = ExtResource("16_iua7u")
+volume_db = 1.0
+
+[node name="RightSqueakingAudio" type="AudioStreamPlayer3D" parent="RigidBody3D/Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73483, 0, -1.17618)
+stream = ExtResource("17_c0c16")
+volume_db = 1.0
 
 [connection signal="timeout" from="RigidBody3D/Audio/Timer" to="RigidBody3D" method="_play_letstruckinggo"]
 

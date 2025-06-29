@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var acceleration := 48.0
+@export var acceleration := 32.0
 @export var max_speed := 60.0
 @export var turn_speed := 2.5
 @export var friction := 6.0
@@ -28,6 +28,8 @@ extends RigidBody3D
 @onready var thrust_voice_audio_01: AudioStreamPlayer3D = $Audio/ThrustVoiceAudio01
 @onready var normal_voice_audio_01: AudioStreamPlayer3D = $Audio/NormalVoiceAudio01
 @onready var lets_trucking_go: AudioStreamPlayer3D = $Audio/LetsTruckingGo
+@onready var left_squeaking_audio: AudioStreamPlayer3D = $Audio/LeftSqueakingAudio
+@onready var right_squeaking_audio: AudioStreamPlayer3D = $Audio/RightSqueakingAudio
 
 signal game_over_clobbered
 
@@ -136,8 +138,14 @@ func _physics_process(delta):
 		var turn := 0.0
 		if Input.is_action_pressed("turn_left"):
 			turn += _turn_left
+			if ! left_squeaking_audio.playing:
+				left_squeaking_audio.play()
+
 		if Input.is_action_pressed("turn_right"):
 			turn += _turn_right
+			if ! right_squeaking_audio.playing:
+				right_squeaking_audio.play()
+
 		rotate_y(turn * turn_speed * delta)
 
 	var current_rotation = rotation_degrees
