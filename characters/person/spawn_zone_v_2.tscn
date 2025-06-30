@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://clgyxs4pv6h0n"]
+[gd_scene load_steps=5 format=3 uid="uid://btkbqxsm7ot7d"]
 
 [ext_resource type="Script" uid="uid://cbi41use62od2" path="res://characters/person/spawn_zone_v_2.gd" id="1_gc0p5"]
 [ext_resource type="PackedScene" uid="uid://bfqw346p18j1b" path="res://characters/person/person.tscn" id="2_ebyxf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebyxf"]
 transparency = 1
-albedo_color = Color(0.113725, 1, 1, 0.247059)
+albedo_color = Color(0.113725, 1, 1, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jd1y0"]
 material = SubResource("StandardMaterial3D_ebyxf")

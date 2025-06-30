@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dndttmih62mds"]
+
+[ext_resource type="Script" uid="uid://d2nyyj8ou01gk" path="res://scenes/gameUI/game_won_overlay.gd" id="1_0tutb"]
+[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/gameUI/fonts/Super Squad.otf" id="1_6a7aw"]
+[ext_resource type="Theme" uid="uid://dw33yhp6pcuki" path="res://scenes/button_theme.tres" id="3_5d782"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tutb"]
+font = ExtResource("1_6a7aw")
+font_size = 75
+font_color = Color(0.0612926, 0.375796, 0.243654, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameWonOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0tutb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011587, 0.184544, 0.138071, 0.819608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YouWonLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "YOU Won"
+label_settings = SubResource("LabelSettings_0tutb")
+
+[node name="RestartLevelButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_5d782")
+text = "Restart Level"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_5d782")
+text = "Main Menu
+"

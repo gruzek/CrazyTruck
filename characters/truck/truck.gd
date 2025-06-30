@@ -30,6 +30,7 @@ extends RigidBody3D
 @onready var lets_trucking_go: AudioStreamPlayer3D = $Audio/LetsTruckingGo
 @onready var left_squeaking_audio: AudioStreamPlayer3D = $Audio/LeftSqueakingAudio
 @onready var right_squeaking_audio: AudioStreamPlayer3D = $Audio/RightSqueakingAudio
+@onready var ice_cream_van_music: AudioStreamPlayer3D = $Audio/IceCreamVanMusic
 
 signal game_over_clobbered
 
@@ -314,4 +315,4 @@ func _malfunction_finished() -> void:
 	_calc_malfunction()
 	
 func _play_letstruckinggo() -> void:
-	lets_trucking_go.play() # Replace with function body.
+	lets_trucking_go.play() 

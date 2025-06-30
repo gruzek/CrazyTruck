@@ -1,4 +1,5 @@
 extends Control
+@onready var lets_trucking_go: AudioStreamPlayer2D = $LetsTruckingGo
 
 func _ready():
 	$CenterContainer/VBoxContainer/NewGameButton.pressed.connect(_on_new_game_pressed)
@@ -13,3 +14,7 @@ func _on_settings_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_lets_trucking_go_timer_timeout() -> void:
+	lets_trucking_go.play() # Replace with function body.

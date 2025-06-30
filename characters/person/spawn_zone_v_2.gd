@@ -8,7 +8,7 @@ func spawn_person() -> void:
 	# Get the size of the area
 	#var collider = get_node("CollisionShape3D")
 	var area_sizes = mesh.size
-	print(area_sizes)
+	#print(area_sizes)
 	# Get random x & z locations
 	var random_x = randf_range(-area_sizes.x / 2.0, area_sizes.x / 2.0)
 	var random_z = randf_range(-area_sizes.z / 2.0, area_sizes.z / 2.0)

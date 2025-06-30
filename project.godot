@@ -13,11 +13,12 @@ config_version=5
 config/name="CrazyTruck"
 run/main_scene="uid://b8j2p4q6y3nxk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://blh62iitn22v1"
 
 [global_group]
 
 person="group for people"
+truck=""
 
 [input]
 

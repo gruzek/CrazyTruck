@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://biva1tfp64phd"]
+[gd_scene load_steps=7 format=3 uid="uid://biva1tfp64phd"]
 
 [ext_resource type="Script" uid="uid://bhknfatake4qo" path="res://scenes/gameUI/game_over_overlay.gd" id="1_x5omy"]
 [ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/gameUI/fonts/Super Squad.otf" id="2_i5au4"]
+[ext_resource type="AudioStream" uid="uid://0vxhu7mwqyhh" path="res://music/orchestral-win-331233.mp3" id="3_36qq1"]
+[ext_resource type="Theme" uid="uid://dw33yhp6pcuki" path="res://scenes/button_theme.tres" id="3_tqq2k"]
+[ext_resource type="StyleBox" uid="uid://c6o8mfpxp817v" path="res://scenes/gameUI/game_over_style_box_flat.tres" id="4_bu6ls"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i25hf"]
 font = ExtResource("2_i5au4")
@@ -49,9 +52,17 @@ label_settings = SubResource("LabelSettings_i25hf")
 
 [node name="RestartLevelButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_tqq2k")
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = ExtResource("4_bu6ls")
 text = "Restart Level"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_tqq2k")
+theme_override_styles/normal = ExtResource("4_bu6ls")
 text = "Main Menu
 "
+
+[node name="YouWonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_36qq1")

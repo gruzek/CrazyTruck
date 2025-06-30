@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dw33yhp6pcuki"]
+
+[ext_resource type="FontFile" uid="uid://dmdt6ucsbmqe7" path="res://scenes/gameUI/fonts/Super Squad.otf" id="1_slvbs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf2qc"]
+bg_color = Color(0.0627451, 0.227451, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slvbs"]
+bg_color = Color(0.082017, 0.277465, 0.270473, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[resource]
+default_font = ExtResource("1_slvbs")
+default_font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_sf2qc")
+Button/styles/normal = SubResource("StyleBoxFlat_slvbs")
